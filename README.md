@@ -17,7 +17,50 @@ This helps visualize how particles update their positions in search of the optim
 
 ## 📂 Files
 - `main.tex` - The main LaTeX code
-- `pso_diagram` - Standalone TikZ figure
+- ![pso_diagram](figures/pso-latex.PNG)
 
 ```sh
-pdflatex main.tex
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Define positions of points
+        \coordinate (pi) at (0,0);
+        \coordinate (vi) at (3,-3);
+        \coordinate (pbest) at (2,1.25);
+        \coordinate (gbest) at (5,-1);
+        \coordinate (newpos) at (4,-1.3);
+        \coordinate (pp) at (2,-.85);
+        \coordinate (vv) at (1.20,-1.25);
+        
+        % Draw circles indicating the zones
+        \draw[dashed, blue] (2,1.25) circle (1);
+        \draw[dashed, blue] (5,-1) circle (2);
+
+        % Draw velocity vector
+        \draw[->, thick] (pi) -- ++(vi) node[midway, left] {$v_i$};
+
+        % Draw directional arrows to pbest and gbest
+        \draw[->, thick,dotted] (pi) -- (pbest);
+        \draw[->, thick,dotted] (pi) -- (gbest);
+        
+        % Arrows towards new position
+        \draw[->, thick, blue] (pi)  -- (vv);
+        \draw[->, thick, blue] (1.20,-1.25) -- (pp);
+        \draw[->, thick, blue] (2,-.85) -- (newpos);
+        
+        % Nodes for points
+        \fill (pi) circle (3pt) node[below] {$p_i$};
+        \fill (pbest) circle (3pt) node[below] {$p_{i,\text{best}}$};
+        \fill (gbest) circle (3pt) node[below] {$\mathbf{g}_{\text{best}}$};
+        \fill[orange] (newpos) circle (3pt) node[below] {\textcolor{orange}{The new position}};
+        
+        % Labels
+        \node[above] at (pi) {Current position};
+        \node[above] at (pbest) {The best experience position};
+        \node[above] at (gbest) {The best particle position};
+
+    \end{tikzpicture}
+    \caption{Illustration of particle movement in PSO algorithm.}
+    \label{fig:pso_movement}
+\end{figure}
