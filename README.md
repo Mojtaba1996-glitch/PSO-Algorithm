@@ -16,12 +16,8 @@ This helps visualize how particles update their positions in search of the optim
 - Optionally, `pdflatex` to compile locally
 
 ## 📂 Files
-- `main.tex` - The main LaTeX document
-- `pso_diagram.tex` - Standalone TikZ figure
-- `output.pdf` - Compiled PDF output
-
-## 🚀 How to Compile
-To generate the PDF, use:
+- `main.tex` - The main LaTeX code
+- `pso_diagram` - Standalone TikZ figure
 
 ```sh
 pdflatex main.tex
