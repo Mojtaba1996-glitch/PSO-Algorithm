@@ -17,7 +17,7 @@ This helps visualize how particles update their positions in search of the optim
 
 ## 📂 Files
 - `main.tex` - The main LaTeX code
-- ![pso_diagram](figures/pso-latex.PNG)
+[pso_diagram](figure/pso-latex.PNG)
 
 ```sh
 
